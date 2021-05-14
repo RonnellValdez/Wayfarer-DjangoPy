@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    {% comment %} Our css {% endcomment %}
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    {% comment %} <script src="{% static 'scripts/main.js' %}" defer></script> {% endcomment %}
+    {% block css %}
+    {% endblock %}
+    <title>Wayfarer</title>
+  </head>
+  <body>
+        <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="/">Wayfarer</a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+          <div class="navbar-menu navbar-start">
+            {% comment %} <a class="navbar-item" href="{% url 'about' %}">About</a> {% endcomment %}
+          </div>
+          {% comment %} {% if user.is_authenticated %} {% endcomment %}
+              <div class="navbar-menu navbar-end">
+                  {% comment %} <span class="navbar-item">Welcome: {{user.username}}</span> {% endcomment %}
+                  <a class="navbar-item" href="/artists">Log in</a>
+                  {% comment %} <a class="navbar-item" href="{% url 'logout' %}">Logout</a> {% endcomment %}
+                </div>
+            {% comment %} {% else %} {% endcomment %}
+                <div class="navbar-menu navbar-end">
+                {% comment %} <a class="navbar-item" href="{% url 'login' %}">Log In</a> {% endcomment %}
+                </div>
+            {% comment %} {% endif %} {% endcomment %}
+        </nav>
+
+        <div class="container">
+     
+          {% block content %}
+          {% comment %} 
+          Our other pages will add all of their content into this space 
+          {% endcomment %}
+          {% endblock %}
+     
+        </div>
+
+
+      </div>
+    </div>
+  </body>
+</html>
