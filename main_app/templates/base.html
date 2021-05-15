@@ -21,7 +21,7 @@
         <nav class="navbar is-black" role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
             <a class="navbar-item" href="/">Wayfarer</a>
-            <a href="/accounts/login" class="navbar-item">Login</a>
+            {% comment %} <a href="/accounts/login" class="navbar-item">Login</a> {% endcomment %}
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
@@ -31,17 +31,18 @@
           <div class="navbar-menu navbar-start">
             {% comment %} <a class="navbar-item" href="{% url 'about' %}">About</a> {% endcomment %}
           </div>
-          {% comment %} {% if user.is_authenticated %} {% endcomment %}
+          {% if user.is_authenticated %}
               <div class="navbar-menu navbar-end">
-                  {% comment %} <span class="navbar-item">Welcome: {{user.username}}</span> {% endcomment %}
+                  <span class="navbar-item">Welcome: {{user.username}}</span>
                   <a class="navbar-item" href="/profile">User Profile</a>
-                  {% comment %} <a class="navbar-item" href="{% url 'logout' %}">Logout</a> {% endcomment %}
+                  <a class="navbar-item" href="{% url 'logout' %} {{ next }}">Logout</a>
                 </div>
-            {% comment %} {% else %} {% endcomment %}
+            {% else %}
                 <div class="navbar-menu navbar-end">
-                {% comment %} <a class="navbar-item" href="{% url 'login' %}">Log In</a> {% endcomment %}
+                <a class="navbar-item" href="{% url 'login' %}">Log In</a>
+                <a href="{% url 'signup' %}" class="navbar-item">Signup</a>
                 </div>
-            {% comment %} {% endif %} {% endcomment %}
+            {% endif %}
         </nav>
 
         <div class="container">
