@@ -15,3 +15,12 @@ class City(Model):
     country = CharField(max_length=50)
     image_thumbnail = CharField(max_length=500)
     image_detailed = CharField(max_length=500)
+
+class Posts(Model):
+    title = CharField(max_length=250)
+    text = CharField(max_length=2000)
+    image = CharField(max_length=500)
+    user = ForeignKey(User, on_delete=models.Casade)
+
+    def __str__(self):
+        return self.title
