@@ -1,5 +1,7 @@
 body {
     background-color: #05040A;
+    min-height: 100vh;
+    color: #FDFDFD;
 }
 
 .hero-carousel {
