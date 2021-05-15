@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models import Model, CharField, BooleanField, TextField, DateTimeField, OneToOneField
+from django.db.models import Model, CharField, BooleanField, TextField, DateTimeField, OneToOneField, ForeignKey
 from django.contrib.auth.models import User
 # Create your models here.
 
