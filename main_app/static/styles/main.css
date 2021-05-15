@@ -9,3 +9,12 @@ body {
     height: 700px;
     object-position: top;
   }
+
+.topic-section {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.topic {
+    display:inline-block;
+}
