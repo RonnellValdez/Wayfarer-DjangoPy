@@ -20,7 +20,7 @@ class Posts(Model):
     title = CharField(max_length=250)
     text = CharField(max_length=2000)
     image = CharField(max_length=500)
-    user = ForeignKey(User, on_delete=models.Casade)
+    user = ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
