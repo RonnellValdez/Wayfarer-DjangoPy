@@ -1,9 +1,9 @@
 from django.db import models
 from django.db.models import Model, CharField, BooleanField, TextField, DateTimeField, OneToOneField, ForeignKey
 from django.contrib.auth.models import User
+
+
 # Create your models here.
-
-
 class Profile(Model):
     user = OneToOneField(User, on_delete=models.CASCADE)
     current_city = CharField(max_length=50)
@@ -11,7 +11,7 @@ class Profile(Model):
     join_date = DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.user
+        return self.user.username
 
 class City(Model):
     name = CharField(max_length=50)

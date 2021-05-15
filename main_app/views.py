@@ -3,6 +3,7 @@ from django.views import View
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -16,7 +17,7 @@ class Signup(View):
     def get(self, request):
         form = UserCreationForm()
         context = {'form': form}
-        return render(request, "signup.html", context)
+        return render(request, "registration/signup.html", context)
 
 
     def post(self, request):
@@ -27,4 +28,4 @@ class Signup(View):
             return redirect("home")
         else:
             context = {"form": form}
-            return render(request, "signup.html", context)
+            return render(request, "registration/signup.html", context)
