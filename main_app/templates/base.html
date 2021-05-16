@@ -12,7 +12,7 @@
     {% comment %} Our css {% endcomment %}
     <link rel="stylesheet" href="{% static 'styles/main.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    {% comment %} <script src="{% static 'scripts/main.js' %}" defer></script> {% endcomment %}
+    <script src="{% static 'scripts/main.js' %}" defer></script> 
     {% block css %}
     {% endblock %}
     <title>Wayfarer</title>
@@ -21,15 +21,16 @@
         <nav class="navbar is-black" role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
             <a class="navbar-item" href="/">Wayfarer</a>
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <!-- <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
-            </a>
+            </a> -->
           </div>
           <div class="navbar-menu navbar-start">
             {% comment %} <a class="navbar-item" href="{% url 'about' %}">About</a> {% endcomment %}
           </div>
+          <!-- <a href="#" id="button" class="button">Log In</a> -->
           {% comment %} {% if user.is_authenticated %} {% endcomment %}
               <div class="navbar-menu navbar-end">
                   {% comment %} <span class="navbar-item">Welcome: {{user.username}}</span> {% endcomment %}
@@ -56,5 +57,34 @@
 
       </div>
     </div>
+
+<!-- Modal -->
+<div class="bg-modal">
+	<div class="modal-content">
+		<div class="close">+</div>
+		<img id="modal-image" src="https://thumbs.dreamstime.com/b/martini-illustration-12093867.jpg">
+		<form class="sign-in">
+			<div class="control has-icons-left has-icons-right">
+				<input class="input is-small" type="email" placeholder="Email or Username">
+				<span class="icon is-small is-left">
+				  <i class="fas fa-envelope"></i>
+				</span>
+				<span class="icon is-small is-right">
+				  <i class="fas fa-check"></i>
+				</span>
+			  </div>
+			<div class="field">
+				<p class="control has-icons-left">
+				  <input class="input" type="password" placeholder="Password">
+				  <span class="icon is-small is-left">
+					<i class="fas fa-lock"></i>
+				  </span>
+				</p>
+			  </div>
+			<input class="button is-danger" type="submit">
+		</form>
+	</div>
+</div>
+
   </body>
 </html>
