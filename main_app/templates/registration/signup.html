@@ -6,10 +6,169 @@
 
 {{form.errors}}
 
+{% comment %} <div class="field">
+    <form action="{% url 'signup' %}" method=POST>
+        {% csrf_token %} {{form.as_p}}
+        <input type="submit" value= "Sign up">
+        <input type="hidden" value= {{ next }}>
+    </form>
+</div> {% endcomment %}
+
+
 <form action="{% url 'signup' %}" method=POST>
-    {% csrf_token %} {{form.as_p}}
-    <input type="submit" value= "Sign up">
+{%csrf_token%}
+{% comment %} <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username"> {% endcomment %}
+<div class="field">
+  <label for= "id_username" class="label">Username</label>
+  <div class="control">
+    <input class="input" type="text" name="username" maxlength="150" autofocus="" required id="id_username" placeholder="Text input">
+    <span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+  </div>
+</div>
+
+{% comment %} <input type="text" name="first_name" maxlength="100" required="" id="id_first_name"> {% endcomment %}
+<div class="field">
+  <label for="id_first_name" class="label">First Name</label>
+  <div class="control">
+    <input type="text" name="first_name" maxlength="100" required id="id_first_name" class="input is-success" placeholder="Text input" value="First Name">
+</div>
+
+<div class="field">
+  <label for="id_last_name" class="label">Last Name</label>
+  <div class="control">
+    <input type="text" name="first_name" maxlength="100" required id="id_last_name" class="input is-success" placeholder="Text input" value="Last Name">
+</div>
+
+<div class="field">
+  <label for="id_current_city" class="label">Current City</label>
+  <div class="control">
+    <input type="text" name="current_city" maxlength="50" required id="id_current_city" class="input is-success" placeholder="Text input" value="Current City">
+</div>
+
+<div class="field">
+  <label for="id_current_country" class="label">Current City</label>
+  <div class="control">
+    <input type="text" name="current_country" maxlength="50" required id="id_current_country" class="input is-success" placeholder="Text input" value="Current City">
+</div>
+
+
+{% comment %} <div class="field">
+  <label class="label">Current City</label>
+  <div class="control">
+    <div class="select">
+      <select>
+        <option>Select dropdown</option>
+        <option>With options</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="field">
+  <label class="label">Current Country</label>
+  <div class="control">
+    <div class="select">
+      <select>
+        <option>Select dropdown</option>
+        <option>With options</option>
+      </select>
+    </div>
+  </div>
+</div> {% endcomment %}
+
+{% comment %} <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1"> {% endcomment %}
+<div class="field">
+  <label for="id_password1" class="label">Password</label>
+  <div class="control">
+    <input class="input is-success" type="password" name="password1" autocomplete="new-password" required id="id_password1" placeholder="Text input" value="Password">
+</div>
+
+<div class="field">
+    <ul>
+        <li>Your password can’t be too similar to your other personal information.</li>
+        <li>Your password must contain at least 8 characters.</li>
+        <li>Your password can’t be a commonly used password.</li>
+        <li>Your password can’t be entirely numeric.</li>
+    </ul>
+</div>
+
+<div class="field">
+  <label for="id_password2" class="label">Password confirmation</label>
+  <div class="control">
+    <input class="input is-success" type="password" name="password2" autocomplete="new-password" required id="id_password2" placeholder="Text input" value="Password">
+    <span class="helptext">Enter the same password as before, for verification.</span>
+</div>
+
+
+
+<div class="field is-grouped">
+  <div class="control">
+    <input type ="submit" class="button is-link" value="Sign Up">
     <input type="hidden" value= {{ next }}>
+  </div>
 </form>
+
+    {% comment %} <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </div>
+  <p class="help is-success">This username is available</p>
+</div> {% endcomment %}
+
+{% comment %} <div class="field">
+  <label class="label">Email</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-exclamation-triangle"></i>
+    </span>
+  </div>
+  <p class="help is-danger">This email is invalid</p>
+</div> {% endcomment %}
+
+
+
+{% comment %} <div class="field">
+  <label class="label">Message</label>
+  <div class="control">
+    <textarea class="textarea" placeholder="Textarea"></textarea>
+  </div>
+</div> {% endcomment %}
+
+{% comment %} <div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input type="checkbox">
+      I agree to the <a href="#">terms and conditions</a>
+    </label>
+  </div>
+</div> {% endcomment %}
+
+{% comment %} <div class="field">
+  <div class="control">
+    <label class="radio">
+      <input type="radio" name="question">
+      Yes
+    </label>
+    <label class="radio">
+      <input type="radio" name="question">
+      No
+    </label>
+  </div>
+</div>
+
+<div class="field is-grouped">
+  <div class="control">
+    <button class="button is-link">Submit</button>
+  </div>
+  <div class="control">
+    <button class="button is-link is-light">Cancel</button>
+  </div>
+</div> {% endcomment %}
 
 {% endblock %}
