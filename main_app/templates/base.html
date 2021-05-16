@@ -12,7 +12,7 @@
     {% comment %} Our css {% endcomment %}
     <link rel="stylesheet" href="{% static 'styles/main.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    {% comment %} <script src="{% static 'scripts/main.js' %}" defer></script> {% endcomment %}
+    <script src="{% static 'scripts/main.js' %}" defer></script>
     {% block css %}
     {% endblock %}
     <title>Wayfarer</title>
@@ -21,6 +21,7 @@
         <nav class="navbar is-black" role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
             <a class="navbar-item" href="/">Wayfarer</a>
+            {% comment %} <a href="/accounts/login" class="navbar-item">Login</a> {% endcomment %}
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
@@ -30,17 +31,18 @@
           <div class="navbar-menu navbar-start">
             {% comment %} <a class="navbar-item" href="{% url 'about' %}">About</a> {% endcomment %}
           </div>
-          {% comment %} {% if user.is_authenticated %} {% endcomment %}
+          {% if user.is_authenticated %}
               <div class="navbar-menu navbar-end">
-                  {% comment %} <span class="navbar-item">Welcome: {{user.username}}</span> {% endcomment %}
-                  <a class="navbar-item" href="/profile">User Profile</a>
-                  {% comment %} <a class="navbar-item" href="{% url 'logout' %}">Logout</a> {% endcomment %}
+                  <span class="navbar-item">Welcome: {{user.username}}</span>
+                  <a class="navbar-item" href="/profile">My Profile</a>
+                  <a class="navbar-item" href="{% url 'logout' %} {{ next }}">Logout</a>
                 </div>
-            {% comment %} {% else %} {% endcomment %}
+            {% else %}
                 <div class="navbar-menu navbar-end">
-                {% comment %} <a class="navbar-item" href="{% url 'login' %}">Log In</a> {% endcomment %}
+                <a class="navbar-item" href="{% url 'login' %}">Log In</a>
+                <a href="{% url 'signup' %}" class="navbar-item">Signup</a>
                 </div>
-            {% comment %} {% endif %} {% endcomment %}
+            {% endif %}
         </nav>
 
         <div class="container">

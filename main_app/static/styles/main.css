@@ -1,5 +1,7 @@
 body {
-    
+    background-color: #05040A;
+    min-height: 100vh;
+    color: #FDFDFD;
 }
 
 .hero-carousel {
@@ -7,3 +9,16 @@ body {
     height: 700px;
     object-position: top;
   }
+
+.topic-section {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.topic {
+    display:inline-block;
+}
+
+#signup-form {
+    max-width: 50%;
+}
