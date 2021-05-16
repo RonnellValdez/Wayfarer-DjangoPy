@@ -18,3 +18,7 @@ body {
 .topic {
     display:inline-block;
 }
+
+#signup-form {
+    max-width: 50%;
+}
