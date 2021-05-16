@@ -10,6 +10,9 @@ from django.forms.widgets import Widget
 
 # Creating this class to be able to add additional fields to the Sign Up form in signup.html
 class SignUpForm(UserCreationForm):
+
+    # Widgets are to create styling on the sign up form
+    # Styling is from Bulma form styling documentation https://bulma.io/documentation/form/general/
     username = forms.CharField(max_length=150, widget=forms.TextInput(attrs= {'class': 'input is-success'}))
     first_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs= {'class': 'input is-success'}))
     last_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs= {'class': 'input is-success'}))
@@ -23,7 +26,6 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('username', 'first_name', 'last_name')
 
-        # Widgets are to create styling on the sign up form
-        # Styling is from Bulma form styling documentation https://bulma.io/documentation/form/general/
+        
 
     
