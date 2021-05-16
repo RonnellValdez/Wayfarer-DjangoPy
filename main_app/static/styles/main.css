@@ -3,20 +3,26 @@
 }
 
 body {
-    
+    background-color: #05040A;
+    min-height: 100vh;
+    color: #FDFDFD;
 }
 
 .hero-carousel {
     width: 1000px;
     height: 700px;
     object-position: top;
+  }
+
+.topic-section {
+    display: flex;
+    margin-bottom: 30px;
 }
 
-.carousel-images {
-    margin-left:0;
+.topic {
+    display:inline-block;
 }
 
-.container {
-    margin: 0;
+#signup-form {
+    max-width: 50%;
 }
-
