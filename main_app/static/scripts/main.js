@@ -7,9 +7,7 @@ $(".navbar-burger").click(function () {
 	$(".navbar-menu").toggleClass("is-active");
 });
 
-document.getElementById('log-in-tag').addEventListener('click', function() {
-	document.querySelector('.bg-modal').style.display = "flex";
-});
+
 
 document.querySelector('.close').addEventListener('click', function() {
 	document.querySelector('.bg-modal').style.display = "none";
@@ -55,3 +53,9 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
+
+
+// // Login
+// document.getElementById('log-in-tag').addEventListener('click', function() {
+// 	document.querySelector('.bg-modal').style.display = "flex";
+// });
