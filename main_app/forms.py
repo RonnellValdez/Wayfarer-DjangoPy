@@ -23,9 +23,10 @@ class SignUpForm(UserCreationForm):
     password2 = forms.CharField(widget=forms.PasswordInput(attrs= {'class': 'input is-success'}))
     date_joined  =datetime.datetime.now()
 
-    class Meta():
+    class Meta(UserCreationForm.Meta):
         model = User
         fields = ('username', 'first_name', 'last_name')
+
 
         
 
