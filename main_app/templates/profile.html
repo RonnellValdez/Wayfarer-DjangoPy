@@ -23,12 +23,8 @@
 
         
         <div class="posts_from_db" mb-5>
+            {{Profile.join_date}}
             
-            {% for post in Profile.Post.all%}
-
-            {{ Post.text }}
-
-            {% endfor %}
         </div>
         
         
@@ -46,7 +42,7 @@
         
         
         
-        <section class="myposts-container">
+        <!-- <section class="myposts-container">
             <div class="single-post">
                 <img src="">
                 <p class="post-title">Title</p>
@@ -71,7 +67,7 @@
                 </p>
             </div>
 
-        </section>
+        </section> -->
 
     </div>
     

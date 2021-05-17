@@ -20,9 +20,9 @@ $(".navbar-burger").click(function () {
 
 
 
-document.querySelector('.close').addEventListener('click', function() {
-	document.querySelector('.bg-modal').style.display = "none";
-});
+// document.querySelector('.close').addEventListener('click', function() {
+// 	document.querySelector('.bg-modal').style.display = "none";
+// });
 
 // $(".modal-button").click(function() {
 // 	let target = $(this).data("target");
