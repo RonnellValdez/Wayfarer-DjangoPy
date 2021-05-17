@@ -55,8 +55,16 @@ class Signup(View):
 
 class UpdateUser(UpdateView):
     model = User
-    fields = ['name', 'img', 'bio', 'verified_artist']
-    template_name = "artist_update.html"
+    fields = ['first_name']
+    template_name = "user_update.html"
 
     def get_success_url(self):
-        return reverse('artist_detail', kwargs={'pk': self.object.pk})
+        return reverse('profile', kwargs={'pk': self.object.pk})
+
+class UpdateProfile(UpdateView):
+    model = Profile
+    fields = ['current_city']
+    template_name = 'profile_update.html'
+
+    def get_success_url(self):
+        return reverse('profile', kwargs={'pk': self.object.pk})

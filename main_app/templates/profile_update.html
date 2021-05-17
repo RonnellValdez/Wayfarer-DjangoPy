@@ -8,11 +8,10 @@
 
     <div class="left-container">
         <p>Name: {{user.first_name}}</p>
-        <a href="{% url 'update_user' user.pk %}">Edit</a>
+        <a href="{% url 'update_user' %}">Edit</a>
         <button>Edit</button>
 
         <p>Current City: {{profile.current_city}}</p>
-        <a href="{% url 'update_profile' user.pk %}">Change</a>
         <button>Change</button>
 
         <p>Join Date: {{user.date_joined}}</p>

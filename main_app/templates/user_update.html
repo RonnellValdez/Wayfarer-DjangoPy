@@ -2,17 +2,19 @@
 
 {% block content %}
 
-<h1>Your Profile Page</h1>
+<h1>You are updating your name...</h1>
 
 <div class="profile-container">
 
     <div class="left-container">
+        <form action="" method="post">
+        {% csrf_token %} {{form.as_p}} <input type="text" value="Submit">
+        </form>
+
         <p>Name: {{user.first_name}}</p>
-        <a href="{% url 'update_user' user.pk %}">Edit</a>
         <button>Edit</button>
 
         <p>Current City: {{profile.current_city}}</p>
-        <a href="{% url 'update_profile' user.pk %}">Change</a>
         <button>Change</button>
 
         <p>Join Date: {{user.date_joined}}</p>
