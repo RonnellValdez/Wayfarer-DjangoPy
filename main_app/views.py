@@ -12,13 +12,23 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+
+from .models import Profile
 # Create your views here.
 
 class Home(TemplateView):
     template_name = 'home.html'
 
-class Profile(TemplateView):
+# @method_decorator(login_required, name='dispatch')
+class ProfileDetail(TemplateView):
     template_name = 'profile.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["profile"] = Profile.objects.get(user=self.request.user)
+        return context
+
+    
 
 class Signup(View):
     def get(self, request):
