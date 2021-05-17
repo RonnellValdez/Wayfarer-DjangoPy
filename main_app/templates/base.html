@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
-    <link href="~bulma-carousel/dist/css/bulma-carousel.min.css" rel="stylesheet">
+    <!-- <link href="~bulma-carousel/dist/css/bulma-carousel.min.css" rel="stylesheet"> -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     {% comment %} Our css {% endcomment %}
     <link rel="stylesheet" href="{% static 'styles/main.css' %}">
@@ -21,12 +21,11 @@
         <nav class="navbar is-black" role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
             <a class="navbar-item" href="/">Wayfarer</a>
-            {% comment %} <a href="/accounts/login" class="navbar-item">Login</a> {% endcomment %}
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
-            </a> -->
+            </a>
           </div>
           <div class="navbar-menu navbar-start">
             {% comment %} <a class="navbar-item" href="{% url 'about' %}">About</a> {% endcomment %}
@@ -40,6 +39,7 @@
             {% else %}
                 <div class="navbar-menu navbar-end">
                 <a class="navbar-item" href="{% url 'login' %}">Log In</a>
+                <!-- link anchor tag to modal -->
                 <a href="{% url 'signup' %}" class="navbar-item">Signup</a>
                 </div>
             {% endif %}
@@ -59,7 +59,32 @@
       </div>
     </div>
 
-
-
+    <!-- Modal Log in -->
+    <section class = "section">
+      <div class = "container">
+         <p>
+            <a class = "button is-primary modal-button" data-target = "#modal">Log in</a>
+         </p>
+         <div id = "modal" class = "modal">
+            <div class = "modal-background"></div>
+            <div class = "modal-content">
+               <div class = "box">
+                  <article class = "media">
+                     <div class = "media-content">
+                        <div class = "content">
+                          <form method="post" action="{% url 'login'%}">
+                            {% csrf_token %} {{ form.as_p}}
+                            <input type="submit" class="btn">
+                            <input type="hidden" name="next" value="{{ next }}">
+                          </form>
+                        </div>
+                     </div>
+                  </article>
+               </div>
+            </div>
+            <button class = "modal-close is-large" aria-label = "close"></button>
+         </div>
+      </div>
+   </section>
   </body>
 </html>

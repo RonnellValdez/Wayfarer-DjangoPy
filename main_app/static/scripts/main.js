@@ -1,25 +1,61 @@
 console.log("connected");
-import bulmaCarousel from '~bulma-carousel/dist/js/bulma-carousel.min.js';
+// import bulmaCarousel from '~bulma-carousel/dist/js/bulma-carousel.min.js';
 
-// Initialize all elements with carousel class.
-const carousels = bulmaCarousel.attach('.carousel', options);
+// // Initialize all elements with carousel class.
+// const carousels = bulmaCarousel.attach('.carousel', options);
 
-// To access to bulmaCarousel instance of an element
-const element = document.querySelector('#my-element');
-if (element && element.bulmaCarousel) {
-	// bulmaCarousel instance is available as element.bulmaCarousel
-}
+// // To access to bulmaCarousel instance of an element
+// const element = document.querySelector('#my-element');
+// if (element && element.bulmaCarousel) {
+// 	// bulmaCarousel instance is available as element.bulmaCarousel
+// };
 
-<<<<<<< HEAD
-// document.getElementById('button').addEventListener('click', function(){
-// 	document.querySelector('.bg-modal').style.display = 'flex';
-// });
-=======
-
+console.log("working");
 // To activate the hamburger menu in the navabar
 $(".navbar-burger").click(function () {
 	// Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
 	$(".navbar-burger").toggleClass("is-active");
 	$(".navbar-menu").toggleClass("is-active");
-  });
->>>>>>> submaster
+});
+
+
+$(".modal-button").click(function() {
+	let target = $(this).data("target");
+	$("html").addClass("is-clipped");
+	$(target).addClass("is-active");
+});
+
+$(".modal-close").click(function() {
+	$("html").removeClass("is-clipped");
+	$(this).parent().removeClass("is-active");
+});
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+
+// Thumbnail image controls
+function currentSlide(n) {
+	showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+	var i;
+	var slides = document.getElementsByClassName("mySlides");
+	var dots = document.getElementsByClassName("dot");
+	if (n > slides.length) {slideIndex = 1}
+	if (n < 1) {slideIndex = slides.length}
+	for (i = 0; i < slides.length; i++) {
+		slides[i].style.display = "none";
+	}
+	for (i = 0; i < dots.length; i++) {
+		dots[i].className = dots[i].className.replace(" active", "");
+	}
+	slides[slideIndex-1].style.display = "block";
+	dots[slideIndex-1].className += " active";
+}
