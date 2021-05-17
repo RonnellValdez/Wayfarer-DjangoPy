@@ -7,19 +7,45 @@
 <div class="profile-container">
 
     <div class="left-container">
-        <p>Name: </p>
+        <p>Name: {{user.name}}</p>
         <button>Edit</button>
 
         <p>Current City: </p>
         <button>Change</button>
 
         <p>Join Date: </p>
+        {{ Profile.join_date }}
     </div>
 
     <div class="right-container">
 
         <h2>My Posts</h2>
 
+        
+        <div class="posts_from_db" mb-5>
+            
+            {% for post in Profile.Post.all%}
+
+            {{ Post.text }}
+
+            {% endfor %}
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <section class="myposts-container">
             <div class="single-post">
                 <img src="">
