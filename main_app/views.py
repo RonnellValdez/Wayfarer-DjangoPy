@@ -36,7 +36,7 @@ class Signup(View):
             profile_form.user = user
             profile_form.save()
             login(request, user)
-            return redirect("home")
+            return redirect("profile")
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)
