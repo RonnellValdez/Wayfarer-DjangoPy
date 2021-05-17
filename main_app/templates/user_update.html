@@ -8,7 +8,8 @@
 
     <div class="left-container">
         <form action="" method="post">
-        {% csrf_token %} {{form.as_p}} <input type="text" value="Submit">
+            {% csrf_token %} {{form.as_p}} 
+            <input type="submit" value="Submit">
         </form>
 
         <p>Name: {{user.first_name}}</p>

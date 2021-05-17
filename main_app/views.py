@@ -57,14 +57,16 @@ class UpdateUser(UpdateView):
     model = User
     fields = ['first_name']
     template_name = "user_update.html"
+    success_url = '/profile/'
 
-    def get_success_url(self):
-        return reverse('profile', kwargs={'pk': self.object.pk})
+    # def get_success_url(self):
+    #     return reverse('profile', kwargs={'pk': self.object.pk})
 
 class UpdateProfile(UpdateView):
     model = Profile
     fields = ['current_city']
     template_name = 'profile_update.html'
+    success_url = '/profile/'
 
     def get_success_url(self):
         return reverse('profile', kwargs={'pk': self.object.pk})
