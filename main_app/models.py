@@ -22,7 +22,7 @@ class Post(Model):
     user = ForeignKey(User, default=1, null=True, on_delete=models.CASCADE)
 
 def __str__(self):
-    return self.title
+    return self.user
          
     
 

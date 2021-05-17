@@ -1,12 +1,17 @@
 from main_app.forms import SignUpForm
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views import View
-from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
-from django.contrib.auth.models import User
+from django.views.generic.edit import UpdateView
 from .forms import SignUpForm, ProfileForm
 
+
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 # Create your views here.
 
 class Home(TemplateView):
@@ -35,3 +40,13 @@ class Signup(View):
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)
+
+@method_decorator(login_required, name='dispatch')
+
+class UpdateUser(UpdateView):
+    model = User
+    fields = ['name', 'img', 'bio', 'verified_artist']
+    template_name = "artist_update.html"
+
+    def get_success_url(self):
+        return reverse('artist_detail', kwargs={'pk': self.object.pk})
