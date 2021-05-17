@@ -19,7 +19,7 @@ class Post(Model):
     title = CharField(max_length=250)
     text = CharField(max_length=2000)
     image = CharField(max_length=500)
-    user = ForeignKey(User, default=1, null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default=1, null=True, on_delete=models.CASCADE)
 
 def __str__(self):
     return self.user
@@ -31,6 +31,9 @@ class City(Model):
     country = CharField(max_length=50)
     image_thumbnail = CharField(max_length=500)
     image_detailed = CharField(max_length=500)
+
+    # Removing default=1 (considered bad practice), when prompted in database, use option 1 and type 1 to connect existing data to the superuser.
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
