@@ -12,20 +12,18 @@ class Profile(Model):
     current_country = CharField(max_length=50)
     join_date = DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.user.username
+    # def __str__(self):
+    #     return self.user.username
 
-    # @receiver(post_save, sender=User)
-    # def create_user_profile(sender, instance, created, **kwargs):
-    #     if created:
-    #         Profile.objects.create(user=instance)
+class Post(Model):
+    title = CharField(max_length=250)
+    text = CharField(max_length=2000)
+    image = CharField(max_length=500)
+    user = ForeignKey(User, default=1, null=True, on_delete=models.CASCADE)
 
-    # @receiver(post_save, sender=User)
-    # def save_user_profile(sender, instance, **kwargs):
-    #     instance.profile.save()
-    
-
-        
+def __str__(self):
+    return self.title
+         
     
 
 class City(Model):
@@ -37,11 +35,4 @@ class City(Model):
     def __str__(self):
         return self.name
 
-class Post(Model):
-    title = CharField(max_length=250)
-    text = CharField(max_length=2000)
-    image = CharField(max_length=500)
-    user = ForeignKey(User, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.title
