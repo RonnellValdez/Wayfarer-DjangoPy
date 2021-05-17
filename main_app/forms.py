@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 import datetime
+from .models import Profile
 
 from django.forms.widgets import Widget
 
@@ -28,4 +29,7 @@ class SignUpForm(UserCreationForm):
 
         
 
-    
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('current_city', 'current_country')
