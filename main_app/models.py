@@ -19,7 +19,7 @@ class Post(Model):
     title = CharField(max_length=250)
     text = CharField(max_length=2000)
     image = CharField(max_length=500)
-    user = models.ForeignKey(User, default=1, null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default=1, null=True, on_delete=models.CASCADE, related_name= "posts")
 
 def __str__(self):
     return self.user
