@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 import datetime
+from .models import Profile
 
 from django.forms.widgets import Widget
 
@@ -22,10 +23,14 @@ class SignUpForm(UserCreationForm):
     password2 = forms.CharField(widget=forms.PasswordInput(attrs= {'class': 'input is-success'}))
     date_joined  =datetime.datetime.now()
 
-    class Meta():
+    class Meta(UserCreationForm.Meta):
         model = User
         fields = ('username', 'first_name', 'last_name')
 
+
         
 
-    
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('current_city', 'current_country')
