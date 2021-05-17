@@ -40,8 +40,9 @@
                 </div>
             {% else %}
                 <div class="navbar-menu navbar-end">
-                <a class="navbar-item" href="{% url 'login' %}">Log In</a>
+                <!-- <a class="navbar-item" href="{% url 'login' %}">Log In</a> -->
                 <!-- link anchor tag to modal -->
+                <a href="#" id="log-in-tag" class="tag is-black">Log In</a>
                 <a href="{% url 'signup' %}" class="navbar-item">Signup</a>
                 </div>
             {% endif %}
@@ -61,32 +62,20 @@
       </div>
     </div>
 
-    <!-- Modal Log in -->
-    <section class = "section">
-      <div class = "container">
-         <p>
-            <a class = "button is-primary modal-button" data-target = "#modal">Log in</a>
-         </p>
-         <div id = "modal" class = "modal">
-            <div class = "modal-background"></div>
-            <div class = "modal-content">
-               <div class = "box">
-                  <article class = "media">
-                     <div class = "media-content">
-                        <div class = "content">
-                          <form method="post" action="{% url 'login'%}">
-                            {% csrf_token %} {{ form.as_p}}
-                            <input type="submit" class="btn">
-                            <input type="hidden" name="next" value="{{ next }}">
-                          </form>
-                        </div>
-                     </div>
-                  </article>
-               </div>
-            </div>
-            <button class = "modal-close is-large" aria-label = "close"></button>
-         </div>
-      </div>
-   </section>
-  </body>
 </html>
+<div class="bg-modal">
+  <div class="modal-contents">
+
+    <div class="close">+</div>
+    <img id="modal-image" src="https://upload.wikimedia.org/wikipedia/en/0/01/Slow_Dancing_in_the_Dark.jpg" alt="">
+
+    <h1 class="title">Log in</h1>
+
+    <form method="post" action="{% url 'login'%}">
+      {% csrf_token %} {{ form.as_p}}
+      <input type="submit" class="btn">
+      <input type="hidden" name="next" value="{{ next }}">
+  </form>
+
+  </div>
+</div>
