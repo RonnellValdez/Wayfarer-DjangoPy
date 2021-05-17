@@ -13,7 +13,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-from .models import Profile
+from .models import Profile, Post
 # Create your views here.
 
 class Home(TemplateView):
@@ -26,6 +26,11 @@ class ProfileDetail(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["profile"] = Profile.objects.get(user=self.request.user)
+        return context
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["post"] = Post.objects.get(user=self.request.user)
         return context
 
     

@@ -14,40 +14,19 @@
         <button>Change</button>
 
         <p>Join Date: </p>
-        {{ Profile.join_date }}
+        {{ user.date_joined }}
     </div>
 
     <div class="right-container">
 
         <h2>My Posts</h2>
 
-        
-        <div class="posts_from_db" mb-5>
-            {{Profile.join_date}}
-            
-        </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <!-- <section class="myposts-container">
+        <section class="myposts-container">
             <div class="single-post">
-                <img src="">
-                <p class="post-title">Title</p>
+                <img src="{{post.image}}">
+                <p class="post-title">{{post.title}}</p>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas beatae, voluptatum dolores accusamus nisi quo in nam laboriosam consectetur pariatur repellendus perferendis voluptas, dolore magni ad cupiditate. Nihil, minus nesciunt?
+                    {{post.text}}
                 </p>
             </div>
             
@@ -67,7 +46,7 @@
                 </p>
             </div>
 
-        </section> -->
+        </section>
 
     </div>
     
