@@ -179,3 +179,7 @@ input {
 li {
     color: red;
 }
+
+.is-red {
+    background-color: rgb(197, 40, 64);
+}
