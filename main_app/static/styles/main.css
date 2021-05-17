@@ -5,7 +5,7 @@
 body {
     background-color: #05040A;
     min-height: 100vh;
-    color: #FDFDFD;
+    color: white;
 }
 
 .hero-carousel {
@@ -95,6 +95,7 @@ input {
   max-width: 1000px;
   position: relative;
   margin: auto;
+  padding-top: 50px;
 }
 
 /* Hide the images by default */
@@ -168,14 +169,81 @@ input {
 .profile-container {
     display: flex;
     flex-direction: row;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .left-container {
-    margin-right: 100px;
+    margin-right: 50px;
     width: 300px;
 }
 /* This LI is targeting the error messages if there is a SignUp error.  Will need to figure out how to target more specifically */
 li {
     color: red;
+}
+
+.is-red {
+    background-color: rgb(197, 40, 64);
+    height: 250px;
+    padding-right: 40px;
+    padding-left: 40px;
+    
+}
+
+.navbar-item {
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+    font-size: 30px;
+}
+
+#wayfarer-id {
+    color: white;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 50px;
+}
+
+@media only screen and (max-width: 1023px) {
+    .navbar-brand {
+        padding-top: 110px
+    }
+}
+
+h1 {
+    font-size: 30px;
+    padding-top: 30px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.myposts-container {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+}
+
+.single-post {
+
+    background-color: white;
+    color: black;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.post-title {
+    font-size: 25px;
+}
+
+.navbar-burger {
+    color: white;
+    margin-top: 30px;
+}
+
+.is-active {
+    background-color: black;
+    
 }
