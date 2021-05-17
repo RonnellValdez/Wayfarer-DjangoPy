@@ -175,3 +175,7 @@ input {
     margin-right: 100px;
     width: 300px;
 }
+/* This LI is targeting the error messages if there is a SignUp error.  Will need to figure out how to target more specifically */
+li {
+    color: red;
+}
