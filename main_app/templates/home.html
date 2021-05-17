@@ -9,55 +9,39 @@
 		<title>Hello Bulma!</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
-        <style>
-            .container{
-                overflow:hidden;
-            }
-        </style>
+        
 	</head>
 	<body>
-		<!-- Start Hero Carousel -->
-		<section class="carousel_images">
-			<div id="carousel-demo" class="hero-carousel">
-				<div class="item-1">
-					<!-- Slide Content -->
-                    <img src="https://wallpaperaccess.com/full/1490237.jpg" alt="club">
-				</div>
-				<div class="item-2">
-					<!-- Slide Content -->
-                    <img src="https://wallpaperforu.com/wp-content/uploads/2020/12/city-wallpaper-201224143348421366x768.jpg" alt="club">
-				</div>
-				<div class="item-3">
-					<!-- Slide Content -->
-                    <img src="https://static.billboard.com/files/media/wynn-Night-Swim-2017-cr-Danny-Mahoney-billboard-1548-1024x677.jpg" alt="club">
-				</div>
-                <div class="item-4">
-					<!-- Slide Content -->
-                    <img src="https://wallpaperaccess.com/full/1490237.jpg" alt="club">
-				</div>
-                <div class="item-5">
-					<!-- Slide Content -->
-                    <img src="https://wallpaperaccess.com/full/1490237.jpg" alt="club">
-				</div>
-			</div>
-			<div class="hero-head"></div>
-			<div class="hero-body"></div>
-			<div class="hero-foot"></div>
-		</section>
-		<!-- End Hero Carousel -->
+    <div class="slideshow-container">
 
-		<script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
-		<script>
-			bulmaCarousel.attach('#carousel-demo', {
-				slidesToScroll: 1,
-				slidesToShow: 1,
-                infinte: true,
-                autoplay: true,
-                autoplaySpeed: 30000,
-                pauseOnHover: true,
-                loop: true,
-			});
-		</script>
+      <!-- Full-width images with number and caption text -->
+      <div class="mySlides fade">
+        <img src="https://wallpaperaccess.com/full/1490237.jpg" style="width:cover">
+      </div>
+    
+      <div class="mySlides fade">
+        <img src="https://wallpaperforu.com/wp-content/uploads/2020/12/city-wallpaper-201224143348421366x768.jpg" style="width: 100%;">
+      </div>
+    
+      <div class="mySlides fade">
+        <img src="https://i.ytimg.com/vi/1YXmdSVhA3M/maxresdefault.jpg" style="width:100%">
+      </div>
+    
+      <div class="mySlides fade">
+        <img src="https://wallpaperaccess.com/full/4090302.jpg" style="width:100%">
+      </div>
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+    <!-- The dots/circles -->
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+      </div>
 	</body>
 </html>
 
@@ -80,22 +64,21 @@
     </div>
 </section>
 
+<!-- Modal======= -->
+<div class="bg-modal">
+  <div class="modal-contents">
 
+    <div class="close">+</div>
+    <img id="modal-image" src="https://upload.wikimedia.org/wikipedia/en/0/01/Slow_Dancing_in_the_Dark.jpg" alt="">
 
-<div class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Article</p>
-      <button class="delete" aria-label="close"></button>
-    </header>
-    <section class="modal-card-body">
-      <!-- Content ... -->
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button is-success">Save changes</button>
-      <button class="button">Cancel</button>
-    </footer>
+    <h1 class="title">Log in</h1>
+
+    <form >
+        {% csrf_token %} {{ form.as_p}}
+        <input id="modal-submit" type="submit" class="btn">
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>
+
   </div>
 </div>
 
