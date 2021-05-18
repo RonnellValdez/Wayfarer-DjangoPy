@@ -22,33 +22,29 @@
 
     <div class="right-container">
 
-    <h2>My Posts</h2>
-<!-- <div>
-    <section class="myposts-container">
-        <div class="single-post">
-            <img src="{{post.image}}">
-            <p class="post-title">{{post.title}}</p>
-            <p>{{post.text}}</p>
-        </div>
-    </section>
-</div> -->
-<div>
-    <section class="myposts-container">
-        {% for post in user.posts.all %}
 
-        <div class="single-post">
+        <section class="myposts-container">
+      
+      {% for post in user.posts.all %}     
+          <div class="single-post">
+                <div class="post-img">
+                    <img src="{{post.image}}">
+                </div>
+                <div class="post-text">
+                    <p class="post-title">{{ post.title }}</p>
+                    <p>
+                        {{ post.text }}
+                    </p>
+                </div>
             
-            <img src="{{post.image}}">
-            <!-- anchor tag needed to link to post_detail -->
-            <a class="post-title" href="{% url 'post_detail' user.pk %}" >{{ post.title }}</a> 
-            <p>
-                {{ post.text }}
-            </p>
-        </div>
-        {% endfor %}
-    </section>
+            </div>
+      {% endfor %}
+        </section>
+  
+
+    </div>
 </div>
-</div> 
 </div>
+    
 
 {% endblock %}
