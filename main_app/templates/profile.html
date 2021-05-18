@@ -6,6 +6,7 @@
 
 <div class="profile-container">
 
+
     <div class="left-container">
         <p><a class="far fa-edit" href="{% url 'update_user' user.pk %}"></a> Name: {{user.first_name}}</p><br><br>
         
@@ -18,51 +19,32 @@
         <p>Join Date: {{user.date_joined}}</p>
     </div>
 
+
     <div class="right-container">
 
-        <h2>My Posts</h2>
 
         <section class="myposts-container">
-            <div class="single-post">
+      
+      {% for post in user.posts.all %}     
+          <div class="single-post">
                 <div class="post-img">
-                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2l0eXxlbnwwfHwwfHw%3D&w=1000&q=80">
+                    <img src="{{post.image}}">
                 </div>
                 <div class="post-text">
-                    <p class="post-title">Title</p>
+                    <p class="post-title">{{ post.title }}</p>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas beatae, voluptatum dolores accusamus nisi quo in nam laboriosam consectetur pariatur repellendus perferendis voluptas, dolore magni ad cupiditate. Nihil, minus nesciunt?
+                        {{ post.text }}
                     </p>
                 </div>
-            </div>
             
-            <div class="single-post">
-                <div class="post-img">
-                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2l0eXxlbnwwfHwwfHw%3D&w=1000&q=80">
-                </div>
-                <div class="post-text">
-                    <p class="post-title">Title</p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas beatae, voluptatum dolores accusamus nisi quo in nam laboriosam consectetur pariatur repellendus perferendis voluptas, dolore magni ad cupiditate. Nihil, minus nesciunt?
-                    </p>
-                </div>
             </div>
-            
-            <div class="single-post">
-                <div class="post-img">
-                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2l0eXxlbnwwfHwwfHw%3D&w=1000&q=80">
-                </div>
-                <div class="post-text">
-                    <p class="post-title">Title</p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas beatae, voluptatum dolores accusamus nisi quo in nam laboriosam consectetur pariatur repellendus perferendis voluptas, dolore magni ad cupiditate. Nihil, minus nesciunt?
-                    </p>
-                </div>
-            </div>
-
+      {% endfor %}
         </section>
+  
 
     </div>
-    
 </div>
+</div>
+    
 
 {% endblock %}
