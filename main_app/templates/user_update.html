@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>You are updating your name...</h1>
+
+<div class="profile-container">
+
+    <div class="left-container">
+        <form action="" method="post">
+            {% csrf_token %} {{form.as_p}} 
+            <input type="submit" value="Submit">
+        </form>
+
+    
+
+        <p>Current City: {{profile.current_city}}</p>
+        <button>Change</button>
+
+        <p>Join Date: {{user.date_joined}}</p>
+    </div>
+
+    <div class="right-container">
+
+        <h2>My Posts</h2>
+
+        <section class="myposts-container">
+            <div class="single-post">
+                <img src="">
+                <p class="post-title">Title</p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas beatae, voluptatum dolores accusamus nisi quo in nam laboriosam consectetur pariatur repellendus perferendis voluptas, dolore magni ad cupiditate. Nihil, minus nesciunt?
+                </p>
+            </div>
+            
+            <div class="single-post">
+                <img src="">
+                <p class="post-title">Title</p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas beatae, voluptatum dolores accusamus nisi quo in nam laboriosam consectetur pariatur repellendus perferendis voluptas, dolore magni ad cupiditate. Nihil, minus nesciunt?
+                </p>
+            </div>
+            
+            <div class="single-post">
+                <img src="">
+                <p class="post-title">Title</p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas beatae, voluptatum dolores accusamus nisi quo in nam laboriosam consectetur pariatur repellendus perferendis voluptas, dolore magni ad cupiditate. Nihil, minus nesciunt?
+                </p>
+            </div>
+
+        </section>
+
+    </div>
+    
+</div>
+
+{% endblock %}

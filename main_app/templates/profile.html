@@ -8,14 +8,15 @@
 
 
     <div class="left-container">
-        <p>Name: {{user.first_name}}</p>
-        <button>Edit</button>
+        <p><a class="far fa-edit" href="{% url 'update_user' user.pk %}"></a> Name: {{user.first_name}}</p><br><br>
+        
+        
 
-        <p>Current City: {{profile.current_city}}</p>
-        <button>Change</button>
+        <p><a class="far fa-edit" href="{% url 'update_profile' profile.pk %}"></a> Current City: {{profile.current_city}}</p><br><br>
+        
+        
 
-        <p>Join Date: </p>
-        {{ user.date_joined }}
+        <p>Join Date: {{user.date_joined}}</p>
     </div>
 
 
