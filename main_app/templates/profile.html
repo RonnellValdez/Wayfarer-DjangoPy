@@ -22,7 +22,7 @@
 
     <div class="right-container">
 
-
+        <h2>My Posts</h2>
         <section class="myposts-container">
       
       {% for post in user.posts.all %}     
@@ -31,7 +31,7 @@
                     <img src="{{post.image}}">
                 </div>
                 <div class="post-text">
-                    <p class="post-title">{{ post.title }}</p>
+                    <a class="post-title" href="{% url 'post_detail' user.pk %}" >{{ post.title }}</a> 
                     <p>
                         {{ post.text }}
                     </p>
