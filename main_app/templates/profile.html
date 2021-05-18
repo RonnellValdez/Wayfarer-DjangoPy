@@ -23,10 +23,6 @@
     <div class="right-container">
 
     <h2>My Posts</h2>
-
-
-<!-- needs for loop  -->
-
 <!-- <div>
     <section class="myposts-container">
         <div class="single-post">
@@ -43,7 +39,8 @@
         <div class="single-post">
             
             <img src="{{post.image}}">
-            <p class="post-title">{{ post.title }}</p>
+            <!-- anchor tag needed to link to post_detail -->
+            <a class="post-title" href="{% url 'post_detail' user.pk %}" >{{ post.title }}</a> 
             <p>
                 {{ post.text }}
             </p>
