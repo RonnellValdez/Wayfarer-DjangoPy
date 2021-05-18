@@ -31,7 +31,7 @@
                     <img src="{{post.image}}">
                 </div>
                 <div class="post-text">
-                    <a class="post-title" href="{% url 'post_detail' user.pk %}" >{{ post.title }}</a> 
+                    <a class="post-title" href="{% url 'post_detail' post.pk %}" >{{ post.title }}</a> 
                     <p>
                         {{ post.text }}
                     </p>

@@ -8,5 +8,5 @@ urlpatterns = [
     path('profile/<int:pk>/update/', views.UpdateUser.as_view(), name='update_user'),
     path('profile/<int:pk>/update/city', views.UpdateProfile.as_view(), name='update_profile'),
     
-    path('profile/<int:pk>/post_detail/', views.PostDetail.as_view(), name='post_detail'),
+    path('profile/posts/<int:pk>/', views.PostDetail.as_view(), name='post_detail'),
 ]

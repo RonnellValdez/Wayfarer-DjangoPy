@@ -32,10 +32,11 @@ class ProfileDetail(TemplateView):
 
 class PostDetail(TemplateView):
     template_name = 'post_detail.html'
+    model = Post
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, pk, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["profile"] = Profile.objects.get(user=self.request.user)
+        context["post"] = Post.objects.get(pk=pk)
         return context
 
 
