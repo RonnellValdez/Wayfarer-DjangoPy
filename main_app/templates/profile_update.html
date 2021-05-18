@@ -2,17 +2,20 @@
 
 {% block content %}
 
-<h1>Your Profile Page</h1>
+<h1>Edit Current City</h1>
 
 <div class="profile-container">
 
     <div class="left-container">
         <p>Name: {{user.first_name}}</p>
-        <a href="{% url 'update_user' %}">Edit</a>
-        <button>Edit</button>
+         <a href="{% url 'update_user' user.pk %}">Edit</a>
+        <button>Edit</button> 
 
-        <p>Current City: {{profile.current_city}}</p>
-        <button>Change</button>
+        <form action="" method="post">
+            {% csrf_token %} {{form.as_p}} 
+            <input type="submit" value="Submit">
+        </form>
+        
 
         <p>Join Date: {{user.date_joined}}</p>
     </div>
