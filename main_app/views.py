@@ -29,7 +29,16 @@ class ProfileDetail(TemplateView):
         context["profile"] = Profile.objects.get(user=self.request.user)
         return context
 
-    
+
+class PostDetail(TemplateView):
+    template_name = 'post_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["profile"] = Profile.objects.get(user=self.request.user)
+        return context
+
+
 
 class Signup(View):
     def get(self, request):
@@ -71,3 +80,4 @@ class UpdateProfile(UpdateView):
 
     # def get_success_url(self):
     #     return reverse('profile', kwargs={'pk': self.object.pk})
+
