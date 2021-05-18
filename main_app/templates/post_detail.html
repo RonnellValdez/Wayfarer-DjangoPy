@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1> 
-    POST DETAIL
-    {{user.first_name}}
-    {{post.title}}
-</h1>
+<div class="content is-large">
+    <img src="{{post.image}}">
+    <h1 class="title is-1" >{{post.title}}</h1>
+    <p>{{ post.text }}</p>
+
+</div>
+
+
 
 {% endblock %}
