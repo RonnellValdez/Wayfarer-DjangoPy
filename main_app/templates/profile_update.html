@@ -23,36 +23,27 @@
     <div class="right-container">
 
         <h2>My Posts</h2>
-
         <section class="myposts-container">
-            <div class="single-post">
-                <img src="">
-                <p class="post-title">Title</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas beatae, voluptatum dolores accusamus nisi quo in nam laboriosam consectetur pariatur repellendus perferendis voluptas, dolore magni ad cupiditate. Nihil, minus nesciunt?
-                </p>
-            </div>
+      
+      {% for post in user.posts.all %}     
+          <div class="single-post">
+                <div class="post-img">
+                    <img src="{{post.image}}">
+                </div>
+                <div class="post-text">
+                    <a class="post-title" href="{% url 'post_detail' user.pk %}" >{{ post.title }}</a> 
+                    <p>
+                        {{ post.text }}
+                    </p>
+                </div>
             
-            <div class="single-post">
-                <img src="">
-                <p class="post-title">Title</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas beatae, voluptatum dolores accusamus nisi quo in nam laboriosam consectetur pariatur repellendus perferendis voluptas, dolore magni ad cupiditate. Nihil, minus nesciunt?
-                </p>
             </div>
-            
-            <div class="single-post">
-                <img src="">
-                <p class="post-title">Title</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas beatae, voluptatum dolores accusamus nisi quo in nam laboriosam consectetur pariatur repellendus perferendis voluptas, dolore magni ad cupiditate. Nihil, minus nesciunt?
-                </p>
-            </div>
-
+      {% endfor %}
         </section>
+  
 
     </div>
-    
+
 </div>
 
 {% endblock %}
