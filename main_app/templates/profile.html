@@ -6,6 +6,7 @@
 
 <div class="profile-container">
 
+
     <div class="left-container">
         <p><a class="far fa-edit" href="{% url 'update_user' user.pk %}"></a> Name: {{user.first_name}}</p><br><br>
         
@@ -18,39 +19,39 @@
         <p>Join Date: {{user.date_joined}}</p>
     </div>
 
+
     <div class="right-container">
 
-        <h2>My Posts</h2>
+    <h2>My Posts</h2>
 
-        <section class="myposts-container">
-            <div class="single-post">
-                <img src="">
-                <p class="post-title">Title</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas beatae, voluptatum dolores accusamus nisi quo in nam laboriosam consectetur pariatur repellendus perferendis voluptas, dolore magni ad cupiditate. Nihil, minus nesciunt?
-                </p>
-            </div>
+
+<!-- needs for loop  -->
+
+<!-- <div>
+    <section class="myposts-container">
+        <div class="single-post">
+            <img src="{{post.image}}">
+            <p class="post-title">{{post.title}}</p>
+            <p>{{post.text}}</p>
+        </div>
+    </section>
+</div> -->
+<div>
+    <section class="myposts-container">
+        {% for post in user.posts.all %}
+
+        <div class="single-post">
             
-            <div class="single-post">
-                <img src="">
-                <p class="post-title">Title</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas beatae, voluptatum dolores accusamus nisi quo in nam laboriosam consectetur pariatur repellendus perferendis voluptas, dolore magni ad cupiditate. Nihil, minus nesciunt?
-                </p>
-            </div>
-            
-            <div class="single-post">
-                <img src="">
-                <p class="post-title">Title</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas beatae, voluptatum dolores accusamus nisi quo in nam laboriosam consectetur pariatur repellendus perferendis voluptas, dolore magni ad cupiditate. Nihil, minus nesciunt?
-                </p>
-            </div>
-
-        </section>
-
-    </div>
-    
+            <img src="{{post.image}}">
+            <p class="post-title">{{ post.title }}</p>
+            <p>
+                {{ post.text }}
+            </p>
+        </div>
+        {% endfor %}
+    </section>
+</div>
+</div> 
 </div>
 
 {% endblock %}
