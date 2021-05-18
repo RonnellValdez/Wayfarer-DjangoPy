@@ -24,33 +24,36 @@
     <title>Wayfarer</title>
   </head>
   <body>
-        <nav class="navbar is-red" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
-            <a class="navbar-item" id="wayfarer-id" href="/">Wayfarer</a>
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-            </a>
-          </div>
+
+      <nav class="navbar is-red wrap" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" id="wayfarer-id" href="/">Wayfarer</a>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div class="circle"></div>
           <div class="navbar-menu navbar-start">
             {% comment %} <a class="navbar-item" href="{% url 'about' %}">About</a> {% endcomment %}
           </div>
           {% if user.is_authenticated %}
-              <div class="navbar-menu navbar-end">
-                  <span class="navbar-item">Welcome: {{user.username}}</span>
-                  <a class="navbar-item" href="/profile">My Profile</a>
-                  <a class="navbar-item" href="{% url 'logout' %} {{ next }}">Logout</a>
-                </div>
-            {% else %}
-                <div class="navbar-menu navbar-end">
-                <a class="navbar-item" href="{% url 'login' %}">Log In</a>
-                <!-- link anchor tag to modal -->
-                <!-- Modal Tag <a href="#" id="log-in-tag" class="tag is-black">Log In</a> -->
-                <a href="{% url 'signup' %}" class="navbar-item">Signup</a>
-                </div>
-            {% endif %}
+          <div class="navbar-menu navbar-end">
+            <span class="navbar-item">Welcome: {{user.username}}</span>
+            <a class="navbar-item" href="/profile">My Profile</a>
+            <a class="navbar-item" href="{% url 'logout' %} {{ next }}">Logout</a>
+          </div>
+          {% else %}
+          <div class="navbar-menu navbar-end">
+            <a class="navbar-item" href="{% url 'login' %}">Log In</a>
+            <!-- link anchor tag to modal -->
+            <!-- Modal Tag <a href="#" id="log-in-tag" class="tag is-black">Log In</a> -->
+            <a href="{% url 'signup' %}" class="navbar-item">Signup</a>
+          </div>
+          {% endif %}
         </nav>
+
 
   
 
