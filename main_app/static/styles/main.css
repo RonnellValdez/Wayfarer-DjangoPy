@@ -8,6 +8,10 @@ body {
     color: white;
 }
 
+.post-detail-container {
+  margin-top: 20px;
+}
+
 .hero-carousel {
     width: 1000px;
     height: 700px;
@@ -275,13 +279,17 @@ h2 {
     top: -87px;
 }
 
+.post-text {
+  width: 268%;
+}
+
   .post-img {
     padding-right: 30px;
     height: 100%;
     width: 1500px;
 }
 
-.post-img img {
+.post-img > img {
     height: 100%;
     width: 100%;
 }
