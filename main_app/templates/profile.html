@@ -7,12 +7,12 @@
 <div class="profile-container">
 
     <div class="left-container">
-        <p>Name: {{user.first_name}}</p>
-        <a href="{% url 'update_user' user.pk %}">Edit</a>
+        <p><a class="far fa-edit" href="{% url 'update_user' user.pk %}"></a> Name: {{user.first_name}}</p><br><br>
+        
         
 
-        <p>Current City: {{profile.current_city}}</p>
-        <a href="{% url 'update_profile' profile.pk %}">Change</a>
+        <p><a class="far fa-edit" href="{% url 'update_profile' profile.pk %}"></a> Current City: {{profile.current_city}}</p><br><br>
+        
         
 
         <p>Join Date: {{user.date_joined}}</p>

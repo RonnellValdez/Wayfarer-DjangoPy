@@ -9,7 +9,7 @@
     <div class="left-container">
         <p>Name: {{user.first_name}}</p>
          <a href="{% url 'update_user' user.pk %}">Edit</a>
-        <button>Edit</button> 
+       
 
         <form action="" method="post">
             {% csrf_token %} {{form.as_p}} 
