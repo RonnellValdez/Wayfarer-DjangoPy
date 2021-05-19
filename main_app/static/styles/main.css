@@ -294,7 +294,15 @@ h2 {
     
 }
 
-#circle-nav {
+.authenticated {
+
+  width: 846px;
+  height: 389px;
+  border-radius: 69%;
+  background: black;
+  position: absolute;
+  right: -470px;
+  top: -87px;
   /* animation: .5s slideRight */
   /* animation: .5s slideRight */
 }

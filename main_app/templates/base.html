@@ -33,7 +33,13 @@
             <span aria-hidden="true"></span>
           </a>
         </div>
-        <div id="circle-nav" class="circle"></div>
+
+        {% if not user.is_authenticated %}
+        <div id="circle-nav" class="circle authenticated"></div>
+        {% else%}
+         <div id="circle-nav" class="circle"></div>
+         {% endif %}
+
           <div class="navbar-menu navbar-start">
             {% comment %} <a class="navbar-item" href="{% url 'about' %}">About</a> {% endcomment %}
           </div>
