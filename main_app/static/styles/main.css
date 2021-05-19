@@ -246,7 +246,7 @@ h2 {
 
 .single-post {
 
-    /* background-color: rgb(255, 255, 255); */
+    background-color: rgb(30, 30, 30);
     /* color: black; */
     color: white;
     margin-bottom: 30px;
@@ -256,14 +256,20 @@ h2 {
     display: flex;
     flex-direction: row;
     align-items: center;
+    box-shadow: 10px 15px rgb(80, 80, 80);
 }
 
 .post-title {
-    font-size: 25px;
+    font-size: 30px;
 }
 
 #wayfarer-h1 {
-  margin-left: 44%;
+  /* margin-left: 44%; */
+  font-weight: bolder;
+  font-size: 45px;
+  text-align: center;
+  color: rgb(179, 179, 179);
+  
 }
 
 .navbar-burger {
@@ -355,5 +361,40 @@ h2 {
   margin-left: 47px;
   margin-bottom: 34px;
 
+}
+
+
+
+#navbar_image {
+  padding-top: 10px;
+  padding-bottom: 18px;
+  max-width: 118%;
+}
+
+.navbar_image_link{
+  max-width: 20%;
+
+}
+
+#title_post_detail {
+  text-align: center;
+  color: #717171;
+
+}
+
+#image_post_detail {
+  border-radius: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+}
+
+#name_profile_page {
+  font-size: 25px;
+}
+
+#city_profile_page {
+  font-size: 25px;
 }
 
