@@ -246,7 +246,7 @@ h2 {
 
 .single-post {
 
-    /* background-color: rgb(255, 255, 255); */
+    background-color: rgb(30, 30, 30);
     /* color: black; */
     color: white;
     margin-bottom: 30px;
@@ -263,7 +263,12 @@ h2 {
 }
 
 #wayfarer-h1 {
-  margin-left: 44%;
+  /* margin-left: 44%; */
+  font-weight: bolder;
+  font-size: 45px;
+  text-align: center;
+  color: rgb(179, 179, 179);
+  
 }
 
 .navbar-burger {
@@ -318,4 +323,10 @@ h2 {
 #navbar_image {
   padding-top: 10px;
   padding-bottom: 18px;
+  max-width: 118%;
+}
+
+.navbar_image_link{
+  max-width: 20%;
+
 }
