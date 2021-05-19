@@ -31,6 +31,12 @@ body {
     max-width: 50%;
 }
 
+#profile-h1 {
+  margin-bottom: 60px;
+  margin-left: 35px;
+  margin-top: 61px;
+}
+
 .title{
   color: white;
   margin-left: 161px;
@@ -240,8 +246,9 @@ h2 {
 
 .single-post {
 
-    background-color: rgb(255, 255, 255);
-    color: black;
+    /* background-color: rgb(255, 255, 255); */
+    /* color: black; */
+    color: white;
     margin-bottom: 30px;
     border-radius: 15px;
     padding-right: 10px;
