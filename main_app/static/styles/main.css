@@ -256,10 +256,11 @@ h2 {
     display: flex;
     flex-direction: row;
     align-items: center;
+    box-shadow: 10px 15px rgb(80, 80, 80);
 }
 
 .post-title {
-    font-size: 25px;
+    font-size: 30px;
 }
 
 #wayfarer-h1 {
@@ -330,3 +331,26 @@ h2 {
   max-width: 20%;
 
 }
+
+#title_post_detail {
+  text-align: center;
+  color: #717171;
+
+}
+
+#image_post_detail {
+  border-radius: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+}
+
+#name_profile_page {
+  font-size: 25px;
+}
+
+#city_profile_page {
+  font-size: 25px;
+}
+
