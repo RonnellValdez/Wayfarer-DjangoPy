@@ -297,7 +297,49 @@ h2 {
     position: absolute;
     right: -139px;
     top: -87px;
+    
 }
+
+.authenticated {
+
+  width: 846px;
+  height: 389px;
+  border-radius: 69%;
+  background: black;
+  position: absolute;
+  right: -470px;
+  top: -87px;
+  /* animation: .5s slideRight */
+  /* animation: .5s slideRight */
+}
+
+@keyframes slideLeft {
+  from {transform: translateX(-100%);
+   }
+
+   to { transform: translateX(200);
+   }
+
+}
+
+@keyframes slideRight {
+  from {transform: translateX(200%);
+   }
+
+   to { transform: translateX(50%);
+   }
+
+}
+
+
+
+
+
+
+
+
+
+
 
 .post-text {
   width: 268%;
@@ -320,6 +362,8 @@ h2 {
   margin-bottom: 34px;
 
 }
+
+
 
 #navbar_image {
   padding-top: 10px;
