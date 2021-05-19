@@ -6,22 +6,20 @@ $(".navbar-burger").click(function () {
 	$(".navbar-menu").toggleClass("is-active");
 });
 
+$("#login-button").click(function() {
+    console.log("Is this working?")      
+	$("#login-modal").addClass("is-active");
+ });
+ 
+ $(".modal-close").click(function() {
+	$("html").removeClass("is-clipped");
+	$(this).parent().removeClass("is-active");
+ });
 
-
-// document.querySelector('.close').addEventListener('click', function() {
-// 	document.querySelector('.bg-modal').style.display = "none";
-// });
-
-// $(".modal-button").click(function() {
-// 	let target = $(this).data("target");
-// 	$("html").addClass("is-clipped");
-// 	$(target).addClass("is-active");
-// });
-
-// $(".modal-close").click(function() {
-// 	$("html").removeClass("is-clipped");
-// 	$(this).parent().removeClass("is-active");
-// });
+ $("#signup-button").click(function() {
+    console.log("Is this working?")      
+	$("#signup-modal").addClass("is-active");
+ });
 
 
 var slideIndex = 1;

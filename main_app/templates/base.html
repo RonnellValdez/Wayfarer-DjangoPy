@@ -46,33 +46,67 @@
           </div>
           {% else %}
           <div class="navbar-menu navbar-end">
-            <a class="navbar-item" href="{% url 'login' %}">Log In</a>
+            <a id="login-button" class="navbar-item">Log In</a>
             <!-- link anchor tag to modal -->
             <!-- Modal Tag <a href="#" id="log-in-tag" class="tag is-black">Log In</a> -->
-            <a href="{% url 'signup' %}" class="navbar-item">Signup</a>
+
+            {% if request.get_full_path == "/accounts/login/" %}
+
+            {% else %}
+            <a id="signup-button" class="navbar-item">Signup</a>
+            {% endif %}
           </div>
           {% endif %}
         </nav>
 
 
-  
-
-
-
-
         <div class="container">
-     
+          
           {% block content %}
           {% comment %} 
           Our other pages will add all of their content into this space 
           {% endcomment %}
           {% endblock %}
-     
-        </div>
+         
+    </div>
 
+    <div class="modal" id="login-modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <!-- Any other Bulma elements you want -->
+              <h1 class="title">Log in</h1>
+
+                <form method="post" action="{% url 'login'%}">
+                  {% csrf_token %} 
+                  <input type="text" name="username" placeholder="username">
+                  <input type="password" name="password" placeholder="password">
+                  <input type="submit" class="submit">
+                  </form>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+          </div>
+
+   <div class="modal" id="signup-modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <!-- Any other Bulma elements you want -->
+              <h1 class="title">Sign Up</h1>
+
+                <form action="{% url 'signup' %}" method=POST>
+
+            {% csrf_token %} 
+            
+            {{form.as_p}}
+            <input type="submit" value= "Sign up">
+            <input type="hidden" value= {{ next }}>
+        </form>
+    
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
 
       </div>
-    </div>
+
+          
     </body>
 </html>
 

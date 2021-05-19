@@ -17,8 +17,13 @@ from django.contrib.auth.models import User
 from .models import Profile, Post
 # Create your views here.
 
-class Home(TemplateView):
-    template_name = 'home.html'
+class Home(View):
+
+    def get(self, request):
+        form = SignUpForm()
+        context = {'form': form}
+        return render(request, "home.html", context)
+
 
 # @method_decorator(login_required, name='dispatch')
 class ProfileDetail(TemplateView):
