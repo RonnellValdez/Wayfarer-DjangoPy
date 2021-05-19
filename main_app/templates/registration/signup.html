@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+
+
+{% block content %}
+
+<h1>Signup</h1>
+
+{{form.errors}}
+
+<div id="signup-form">
+    <div class="field">
+        <form action="{% url 'signup' %}" method=POST>
+
+            {% csrf_token %} 
+            
+            {{form.as_p}}
+            <input type="submit" value= "Sign up">
+            <input type="hidden" value= {{ next }}>
+
+    <div class="field">
+        <ul>
+            <li>Your password can’t be too similar to your other personal information.</li>
+            <li>Your password must contain at least 8 characters.</li>
+            <li>Your password can’t be a commonly used password.</li>
+            <li>Your password can’t be entirely numeric.</li>
+        </ul>
+    </div>
+        </form>
+    </div> 
+</div>
+
+
+
+
+{% endblock %}
+

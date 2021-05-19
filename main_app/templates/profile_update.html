@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="profile-container">
+
+    <div class="left-container">
+        <!-- <p>Name: {{user.first_name}}</p>
+         <a href="{% url 'update_user' user.pk %}">Edit</a> -->
+       
+
+        <form action="" method="post">
+            {% csrf_token %} {{form.as_p}} 
+            <input type="submit" value="Submit">
+        </form>
+        
+
+        <!-- <p>Join Date: {{user.date_joined}}</p> -->
+    </div>
+
+    <div class="right-container">
+
+        <h2>My Posts</h2>
+        <section class="myposts-container">
+      
+      {% for post in user.posts.all %}     
+          <div class="single-post">
+                <div class="post-img">
+                    <img src="{{post.image}}">
+                </div>
+                <div class="post-text">
+                    <a class="post-title" href="{% url 'post_detail' user.pk %}" >{{ post.title }}</a> 
+                    <p>
+                        {{ post.text }}
+                    </p>
+                </div>
+            
+            </div>
+      {% endfor %}
+        </section>
+  
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="post-detail-container">
+<div class="content is-large">
+    <img id="image_post_detail"  src="{{post.image}}">
+    <h1 id="title_post_detail">{{post.title}}</h1>
+    <p id="text_post_detail" >{{ post.text }}</p>
+    
+</div>
+</div>
+
+{% endblock %}

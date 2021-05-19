@@ -1,0 +1,122 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    {% comment %} Our css {% endcomment %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Goblin+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{% static 'scripts/main.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    {% block css %}
+    {% endblock %}
+    <title>Wayfarer</title>
+  </head>
+  <body>
+
+      <nav class="navbar is-red wrap" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <!-- <a href="/"><img id="navbar_image" src="https://i.dlpng.com/static/png/7087158_preview.png" alt=""></a> -->
+          <a class="navbar_image_link" href="/">
+            <img id="navbar_image" src="https://i.dlpng.com/static/png/7087158_preview.png" alt="">
+          </a>
+          <a class="navbar-item" id="wayfarer-id" href="/">Wayfarer</a>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        {% if not user.is_authenticated %}
+        <div id="circle-nav" class="circle authenticated"></div>
+        {% else%}
+         <div id="circle-nav" class="circle"></div>
+         {% endif %}
+
+          <div class="navbar-menu navbar-start">
+            {% comment %} <a class="navbar-item" href="{% url 'about' %}">About</a> {% endcomment %}
+          </div>
+          {% if user.is_authenticated %}
+          <div class="navbar-menu navbar-end">
+            <span class="navbar-item">Welcome: {{user.username}}</span>
+            <a class="navbar-item" href="/profile">My Profile</a>
+            <a class="navbar-item" href="{% url 'logout' %} {{ next }}">Logout</a>
+          </div>
+          {% else %}
+          <div class="navbar-menu navbar-end">
+            <a id="login-button" class="navbar-item">Log In</a>
+            <!-- link anchor tag to modal -->
+            <!-- Modal Tag <a href="#" id="log-in-tag" class="tag is-black">Log In</a> -->
+
+            {% if request.get_full_path == "/accounts/login/" %}
+
+            {% else %}
+            <a id="signup-button" class="navbar-item">Signup</a>
+            {% endif %}
+          </div>
+          {% endif %}
+        </nav>
+
+
+        <div class="container">
+          
+          {% block content %}
+          {% comment %} 
+          Our other pages will add all of their content into this space 
+          {% endcomment %}
+          {% endblock %}
+         
+    </div>
+
+    <div class="modal" id="login-modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <!-- Any other Bulma elements you want -->
+              <h1 class="title">Log in</h1>
+
+                <form method="post" action="{% url 'login'%}">
+                  {% csrf_token %} 
+                  <input type="text" name="username" placeholder="username">
+                  <input type="password" name="password" placeholder="password">
+                  <input type="submit" class="submit">
+                  </form>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+          </div>
+
+   <div class="modal" id="signup-modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <!-- Any other Bulma elements you want -->
+              <h1 class="title">Sign Up</h1>
+
+                <form action="{% url 'signup' %}" method=POST>
+
+            {% csrf_token %} 
+            
+            {{form.as_p}}
+            <input type="submit" value= "Sign up">
+            <input type="hidden" value= {{ next }}>
+        </form>
+    
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+
+      </div>
+
+          
+    </body>
+</html>
+
+

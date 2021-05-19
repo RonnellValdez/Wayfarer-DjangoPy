@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 id="profile-h1">Your Profile Page</h1>
+
+<div class="profile-container">
+
+
+    <div class="left-container">
+        <img id="profile_pic" class="image is-128x128" src="https://cdn.fastly.picmonkey.com/content4/previews/celebration_ephemera/celebration_ephemera_27_384.png">
+        
+        <p id="name_profile_page"><a class="far fa-edit" href="{% url 'update_user' user.pk %}"></a> Name: {{user.first_name}}</p><br><br>
+        
+        
+
+        <p id="city_profile_page"><a class="far fa-edit" href="{% url 'update_profile' profile.pk %}"></a> Current City: {{profile.current_city}}</p><br><br>
+        
+        
+
+        <p>Join Date: {{user.date_joined}}</p>
+    </div>
+
+
+    <div class="right-container">
+
+        <h2>My Posts</h2>
+        <section class="myposts-container">
+      
+      {% for post in user.posts.all %}     
+          <div class="single-post">
+                <div class="post-img">
+                    <img class="image is-200x200" src="{{post.image}}">
+                </div>
+                <div class="post-text">
+                    <a class="post-title" href="{% url 'post_detail' post.pk %}" >{{ post.title }}</a> 
+                    <p>
+                        {{ post.text }}
+                    </p>
+                </div>
+            
+            </div>
+      {% endfor %}
+        </section>
+  
+
+    </div>
+</div>
+</div>
+    
+
+{% endblock %}
